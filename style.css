@@ -1,0 +1,103 @@
+/***** General Styles *****/
+:root {
+  font-size: 62.5%;
+
+  /*** Colors ***/
+  --primary-pink: hsla(320, 69%, 42%, 1);
+  --secondary-dark-blue: hsla(244, 38%, 28%, 1);
+  --gradient-dark-blues: linear-gradient(96.21deg, #343193 0%, #302c63 99.68%);
+  --bg-ice: hsla(283, 47%, 97%, 1);
+  --white: hsla(0, 0%, 100%), 1;
+
+  /*** Typography ***/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--bg-ice);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/***** Utils *****/
+.container {
+  width: clamp(26rem, calc(100vw - 8rem), 121.8rem);
+  margin-inline: auto;
+}
+
+/***** Hero *****/
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  padding-bottom: 9rem;
+}
+
+.hero-infos {
+  align-self: center;
+}
+
+.hero-infos h1 {
+  margin-bottom: 0.8rem;
+  font-size: clamp(3.2rem, calc(2.5vw + 2rem), 5.828rem);
+  color: var(--primary-pink);
+}
+
+.hero-infos p {
+  font-size: clamp(2rem, calc(1.5vw + 1rem), 3.2rem);
+}
+
+.hero-infos svg {
+  position: relative;
+  top: 16rem;
+}
+
+/***** Responsive *****/
+@media only screen and (max-width: 1023px) {
+  /*** Hero ***/
+  .hero {
+    grid-template-columns: auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-infos h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-infos p {
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-infos svg {
+    position: initial;
+  }
+
+  .hero-img {
+    order: -1;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: calc(100vw - 4rem);
+  }
+}
