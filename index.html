@@ -11,6 +11,8 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
 
+    <script src="./script.js" defer></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;900&display=swap"
       rel="stylesheet"
@@ -61,7 +63,7 @@
       </div>
     </main>
 
-    <section class="cards">
+    <section class="cards active">
       <ul class="container">
         <li class="card">
           <img
@@ -104,9 +106,47 @@
         <h2>Entre em Contato</h2>
 
         <form action="#">
-          <div class="input-wrapper"></div>
+          <div class="input-wrapper">
+            <label for="nome"
+              ><img
+                src="./assets/person-icon.svg"
+                alt="Ícone para representar um usuário"
+            /></label>
+
+            <input type="text" name="nome" id="nome" placeholder="Seu nome" />
+          </div>
+
+          <div class="input-wrapper">
+            <label for="email">
+              <img
+                src="./assets/at-icon.svg"
+                alt="Ícone para representar um usuário"
+              />
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+
+          <textarea
+            name="mensagem"
+            id="mensagem"
+            rows="10"
+            placeholder="Digite sua mensagem aqui..."
+          ></textarea>
+
+          <button class="btn">Enviar Mensagem</button>
         </form>
       </div>
     </section>
+
+    <footer class="footer">
+      <p>© 2023 - Rocketseat Explorer</p>
+    </footer>
   </body>
 </html>

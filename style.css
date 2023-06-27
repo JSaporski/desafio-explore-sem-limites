@@ -6,6 +6,7 @@
   --primary-pink: hsla(320, 69%, 42%, 1);
   --secondary-dark-blue: hsla(244, 38%, 28%, 1);
   --gradient-dark-blues: linear-gradient(96.21deg, #343193 0%, #302c63 99.68%);
+  --gradient-dark-pink: linear-gradient(134deg, #b52184 0%, #302c63 100%);
   --bg-ice: hsla(283, 47%, 97%, 1);
   --white: hsla(0, 0%, 100%, 1);
 
@@ -68,10 +69,19 @@ ul {
   top: 16rem;
 }
 
+.hero-infos svg path {
+  animation: downUp 0.6s infinite alternate;
+}
+
 /***** Cards *****/
 .cards {
   padding-block: 6.4rem;
   background-color: var(--secondary-dark-blue);
+}
+
+.cards.active .card {
+  visibility: visible;
+  pointer-events: all;
 }
 
 .cards ul {
@@ -86,10 +96,28 @@ ul {
   background-color: var(--white);
   border-radius: 2.4rem;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 0.5s ease-out;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cards .card:nth-child(2) {
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
+}
+
+.cards .card:nth-child(3) {
+  animation-delay: 0.6s;
+  animation-fill-mode: backwards;
 }
 
 .cards .card img {
   margin-bottom: 4rem;
+  transition: transform 0.8s;
+}
+
+.cards .card:hover img {
+  transform: rotate(360deg);
 }
 
 .cards .card h2 {
@@ -106,9 +134,118 @@ ul {
 .contact {
   padding-block: 9.5rem;
   background: url('./assets/stars-pattern.png') no-repeat right bottom;
+  background-size: auto 100%;
+}
+
+.contact h2 {
+  margin-bottom: 3rem;
+  font-size: clamp(3.2rem, calc(1.5vw + 2rem), 4.2rem);
+  color: var(--primary-pink);
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  max-width: 59.2rem;
+}
+
+.contact .input-wrapper {
+  display: flex;
+  gap: 1.2rem;
+  height: 4.8rem;
+}
+
+.contact .input-wrapper input,
+.contact textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.6rem;
+  color: var(--secondary-dark-blue);
+  background-color: transparent;
+  border: none;
+}
+
+.contact .input-wrapper,
+.contact textarea {
+  padding: 1.2rem 1.4rem;
+  border: 0.2rem solid var(--secondary-dark-blue);
+  border-radius: 1.6rem;
+}
+
+.contact .input-wrapper input:focus,
+.contact textarea:focus {
+  outline: 0;
+}
+
+.contact .input-wrapper input::placeholder,
+.contact textarea::placeholder {
+  color: var(--secondary-dark-blue);
+}
+
+.contact .btn {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  padding: 1.05rem 1.6rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--white);
+  background-image: var(--gradient-dark-pink);
+  border: none;
+  border-radius: 1.6rem;
+  cursor: pointer;
+}
+
+.contact .btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: var(--gradient-dark-blues);
+  border-radius: inherit;
+  transition: opacity 0.3s ease-out;
+}
+
+.contact .btn:hover::after {
+  opacity: 0;
+}
+
+/***** Footer *****/
+.footer {
+  display: flex;
+  justify-content: center;
+  background-image: var(--gradient-dark-blues);
+}
+
+.footer p {
+  padding: 3.2rem 1.6rem;
+  font-size: 1.9381rem;
+  color: var(--white);
 }
 
 /***** Responsive *****/
+@media only screen and (max-width: 1600px) {
+  .contact {
+    background-size: contain;
+  }
+}
+
+@media only screen and (max-width: 1190px) {
+  /*** Contact ***/
+  .contact {
+    padding-block: 6.5rem;
+    background: none;
+  }
+
+  .contact form {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 1023px) {
   /*** Hero ***/
   .hero {
@@ -152,5 +289,28 @@ ul {
 @media only screen and (max-width: 400px) {
   .container {
     width: calc(100vw - 4rem);
+  }
+}
+
+/***** Animations *****/
+@keyframes downUp {
+  0% {
+    transform: translateY(-0.8rem);
+  }
+
+  100% {
+    transform: translateY(0.8rem);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(6rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
