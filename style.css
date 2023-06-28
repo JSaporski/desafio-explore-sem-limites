@@ -284,6 +284,13 @@ ul {
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .cards .card:nth-child(2),
+  .cards .card:nth-child(3) {
+    transition-delay: unset;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .container {
     width: calc(100vw - 4rem);
