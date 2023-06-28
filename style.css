@@ -81,7 +81,7 @@ ul {
 
 .cards.active .card {
   visibility: visible;
-  pointer-events: all;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 .cards ul {
@@ -96,9 +96,7 @@ ul {
   background-color: var(--white);
   border-radius: 2.4rem;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
-  animation: fadeInUp 0.5s ease-out;
   visibility: hidden;
-  pointer-events: none;
 }
 
 .cards .card:nth-child(2) {
